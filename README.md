@@ -1,4 +1,4 @@
-# PhishGuard ML
+# Deteccion de Phishing a traves de ML algoritmo XGBoost 
 
 Aplicacion web profesional para desplegar un modelo XGBoost de deteccion de phishing.
 
