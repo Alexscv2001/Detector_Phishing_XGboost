@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Machine Learning Deteccion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Algoritmo de machine learning XGBoost // Desarrollado por Alex Castillon </p>
+          <h1>Machine Learning Deteccion</h1>
+          <p class="lead">Analisis de URLs con un modelo de Machine Learning entrenado para clasificar riesgo de phishing.</p>
+        </div>
+        <div class="model-chip">
+          <span class="pulse"></span>
+          Modelo cargado
+        </div>
+      </section>
+
+      <section class="workspace">
+        <form class="scanner" id="scanForm">
+          <label for="urlInput">URL para analizar</label>
+          <div class="input-row">
+            <input id="urlInput" name="url" type="text" placeholder="https://ejemplo.com/login" autocomplete="off" required>
+            <button type="submit" id="scanButton">Analizar</button>
+          </div>
+          <p class="hint">El backend extrae 30 features en el orden esperado por el scaler y ejecuta la prediccion con XGBoost.</p>
+        </form>
+
+        <aside class="result-panel" id="resultPanel">
+          <div class="empty-state">
+            <span class="shield">ML</span>
+            <p>Ingresa una URL para ver clasificacion, probabilidad y senales detectadas.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="details" id="detailsSection" hidden>
+        <div class="section-title">
+          <h2>Senales evaluadas</h2>
+          <p>Valores: 1 favorable, 0 neutro, -1 sospechoso.</p>
+        </div>
+        <div class="signals" id="signals"></div>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
